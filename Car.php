@@ -15,12 +15,14 @@ class Car
 
     public function forward():string
     {
-        return 'Let \'s go !';
+        $this->currentSpeed = 50;
+        return 'Let \'s go baby ! ' ;
     }
 
     public function brake():string
     {
-        return $this->setCurrentSpeed(0).'La voiture est arrêtée';
+        $this->currentSpeed = 0;
+        return 'La voiture est arrêtée';
     }
 
     /**

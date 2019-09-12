@@ -5,12 +5,14 @@ class Car
     private $color;
     private $nbWheels = 4;
     private $nbSeats;
-    private $currentSpeed;
+    private $currentSpeed = 0;
+    private $energy = 'fuel';
 
-    public function __construct($color,$nbSeats)
+    public function __construct($color,$nbSeats, $energy)
     {
         $this->color = $color;
         $this->nbSeats = $nbSeats;
+        $this->energy = $energy;
     }
 
     public function forward():string
@@ -88,6 +90,23 @@ class Car
     {
         $this->currentSpeed = $currentSpeed;
     }
+
+    /**
+     * @return string
+     */
+    public function getEnergy(): string
+    {
+        return $this->energy;
+    }
+
+    /**
+     * @param string $energy
+     */
+    public function setEnergy(string $energy): void
+    {
+        $this->energy = $energy;
+    }
+
 
 
 }

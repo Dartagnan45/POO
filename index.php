@@ -1,10 +1,11 @@
 <?php
 
 
-require 'Bicycle.php';
-require 'Car.php';
+require_once 'Bicycle.php';
+require_once 'Car.php';
+require_once 'Truck.php';
 
-$bike = new Bicycle('blue');
+$bike = new Bicycle('blue',1);
 
 var_dump($bike);
 
@@ -22,17 +23,29 @@ echo $bike->forward();
 echo '<br> Vitesse du vélo : ' . $bike->getcurrentSpeed() . ' km/h' . '<br>';
 
 var_dump($bike);
-$bike->dump();
 
-$mustang = new Car("rouge",4, 'essence');
+
+$mustang = new Car("rouge",4, 'fuel');
 
 var_dump($mustang);
+var_dump(Car::ALLOWED_ENERGIES);
 
-echo '<p> la voiture possède ' . $mustang->getNbWheels(). ' roues et roule à l\''. $mustang->getEnergy(). '</p>';
+$mustang->setNbWheels(4);
+echo '<p> la voiture possède ' . $mustang->getNbWheels(). ' roues et roule au '. $mustang->getEnergy(). '</p>';
 echo $mustang->forward();
-$mustang->setCurrentSpeed(200);
+$mustang->setCurrentSpeed(100);
 echo '<p> Vitesse de la voiture est de : ' . $mustang->getCurrentSpeed() . ' km/h' . '</p>';
 echo '<p> La couleur de la voiture est : ' . $mustang->getColor()  . '</p>';
 echo $mustang->brake();
 echo '<br>';
 echo '<p> Vitesse de la voiture : ' . $mustang->getcurrentSpeed() . ' km/h' . '</p>';
+
+$foodTruck = new Truck('yellow','3','fuel');
+
+var_dump($foodTruck);
+var_dump(Truck::ALLOWED_STORAGE);
+
+$foodTruck->setNbWheels(4);
+$foodTruck->setStorage('in filling');
+echo '<p> le camion possède ' . $foodTruck->getNbWheels(). ' roues et roule au '. $foodTruck->getEnergy(). '</p>';
+echo '<p>Le camion est ' . $foodTruck->getStorage();

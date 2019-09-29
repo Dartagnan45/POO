@@ -1,93 +1,51 @@
 <?php
 
-class Car
+require_once 'Vehicle.php';
+
+class Car extends Vehicle
 {
-    private $color;
-    private $nbWheels = 4;
-    private $nbSeats;
-    private $currentSpeed;
-
-    public function __construct($color,$nbSeats)
-    {
-        $this->color = $color;
-        $this->nbSeats = $nbSeats;
-    }
-
-    public function forward():string
-    {
-        $this->currentSpeed = 50;
-        return 'Let \'s go baby ! ' ;
-    }
-
-    public function brake():string
-    {
-        $this->currentSpeed = 0;
-        return 'La voiture est arrêtée';
-    }
+    const ALLOWED_ENERGIES = [
+        'fuel',
+        'electric',
+    ];
 
     /**
-     * @return mixed
+     * @var string
      */
-    public function getColor()
-    {
-        return $this->color;
-    }
+    private $energy;
 
     /**
-     * @param mixed $color
+     * @var int
      */
-    public function setColor($color): void
+    private $energyLevel;
+
+    public function __construct(string $color, int $nbSeats, string $energy)
     {
-        $this->color = $color;
+        parent::__construct($color, $nbSeats);
+        $this->setEnergy($energy);
     }
 
-    /**
-     * @return int
-     */
-    public function getNbWheels(): int
+    public function getEnergy(): string
     {
-        return $this->nbWheels;
+        return $this->energy;
     }
 
-    /**
-     * @param int $nbWheels
-     */
-    public function setNbWheels(int $nbWheels): void
+    public function setEnergy(string $energy): Car
     {
-        $this->nbWheels = $nbWheels;
+        if (in_array($energy, self::ALLOWED_ENERGIES)) {
+            $this->energy = $energy;
+        }
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getNbSeats()
+    public function getEnergyLevel(): int
     {
-        return $this->nbSeats;
+        return $this->energyLevel;
     }
 
-    /**
-     * @param mixed $nbSeats
-     */
-    public function setNbSeats($nbSeats): void
+    public function setEnergyLevel(int $energyLevel): void
     {
-        $this->nbSeats = $nbSeats;
+        $this->energyLevel = $energyLevel;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getCurrentSpeed()
-    {
-        return $this->currentSpeed;
-    }
-
-    /**
-     * @param mixed $currentSpeed
-     */
-    public function setCurrentSpeed($currentSpeed): void
-    {
-        $this->currentSpeed = $currentSpeed;
-    }
-
 
 }

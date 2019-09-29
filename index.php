@@ -3,6 +3,7 @@
 
 require 'Bicycle.php';
 require 'Car.php';
+require 'Personnage.php';
 
 $bike = new Bicycle('blue');
 
@@ -36,3 +37,13 @@ echo '<p> La couleur de la voiture est : ' . $mustang->getColor() . ' (rouge en 
 echo $mustang->brake();
 echo '<br>';
 echo '<p> Vitesse de la voiture : ' . $mustang->getcurrentSpeed() . ' km/h' . '</p>';
+
+$julien = new Personnage();
+$julien->setFirstname('Julien');
+$julien->setLastname('Boncoeur');
+try {
+    $julien->setAge(150);
+} catch (Exception $e) {
+}
+
+echo $julien->hello();

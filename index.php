@@ -40,12 +40,3 @@ echo $mustang->brake();
 echo '<br>';
 echo '<p> Vitesse de la voiture : ' . $mustang->getcurrentSpeed() . ' km/h' . '</p>';
 
-$foodTruck = new Truck('yellow','3','fuel');
-
-var_dump($foodTruck);
-var_dump(Truck::ALLOWED_STORAGE);
-
-$foodTruck->setNbWheels(4);
-$foodTruck->setStorage('in filling');
-echo '<p> le camion possède ' . $foodTruck->getNbWheels(). ' roues et roule au '. $foodTruck->getEnergy(). '</p>';
-echo '<p>Le camion est ' . $foodTruck->getStorage();

@@ -43,6 +43,54 @@ class Car extends Vehicle
         return $this->energyLevel;
     }
 
+    /**
+     * @return string
+     */
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param string $color
+     */
+    public function setColor(string $color): void
+    {
+        $this->color = $color;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbSeats(): int
+    {
+        return $this->nbSeats;
+    }
+
+    /**
+     * @param int $nbSeats
+     */
+    public function setNbSeats(int $nbSeats): void
+    {
+        $this->nbSeats = $nbSeats;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbWheels(): int
+    {
+        return $this->nbWheels;
+    }
+
+    /**
+     * @param int $nbWheels
+     */
+    public function setNbWheels(int $nbWheels): void
+    {
+        $this->nbWheels = $nbWheels;
+    }
+
     public function setEnergyLevel(int $energyLevel): void
     {
         $this->energyLevel = $energyLevel;
